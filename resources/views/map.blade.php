@@ -198,11 +198,19 @@
             // Load Point GeoJSON
             var point = L.geoJson(null, {
                 onEachFeature: function(feature, layer) {
+
+                    var routeDelete = "{{ route('points.destroy', ':id') }}";
+                        routeDelete = routeDelete.replace(':id', feature.properties.id);
+
                     var popupContent = "Nama: " + feature.properties.name + "<br>" +
-                        "Deskripsi: " + feature.properties.description + "<br>" +
-                        "Dibuat: " + feature.properties.created_at + "<br>" +
-                        "<img src='{{ asset('storage/images') }}/" + feature.properties.image +
-                        "' width='200' alt=''>";
+						"Deskripsi: " + feature.properties.description + "<br>" +
+                        "Dibuat pada: " + feature.properties.created_at + "<br>" +
+                        "<img src='{{ asset('storage/images') }}/" + feature.properties.image + "' width='200' alt=''>" + "<br>" +
+                        "<form method='POST' action='" + routeDelete + "'>" +
+                            '@csrf' + '@method("DELETE")' +
+                            "<button type='submit' class='btn btn-danger btn-sm' onclick='return confirm(`Are you sure?`)'><i class='fa-solid fa-trash-can'></i></button>" + "</form>"
+                        ;
+
                     layer.on({
                         click: function() {
                             layer.bindPopup(popupContent).openPopup();
@@ -221,12 +229,20 @@
             // Load Polyline GeoJSON
             var polylines = L.geoJson(null, {
                 onEachFeature: function(feature, layer) {
+
+                    var routeDelete = "{{ route('polylines.destroy', ':id') }}";
+                        routeDelete = routeDelete.replace(':id', feature.properties.id);
+
                     var popupContent = "Nama: " + feature.properties.name + "<br>" +
                         "Deskripsi: " + feature.properties.description + "<br>" +
                         "Panjang: " + feature.properties.length_km.toFixed(2) + " km<br>" +
                         "Dibuat: " + feature.properties.created_at + "<br>" +
                         "<img src='{{ asset('storage/images') }}/" + feature.properties.image +
-                        "' width='200' alt=''>";
+                        "' width='200' alt=''>" + "<br>" +
+                        "<form method='POST' action='" + routeDelete + "'>" +
+                            '@csrf' + '@method("DELETE")' +
+                            "<button type='submit' class='btn btn-danger btn-sm' onclick='return confirm(`Are you sure?`)'><i class='fa-solid fa-trash-can'></i></button>" + "</form>"
+                        ;
                     layer.on({
                         click: function() {
                             layer.bindPopup(popupContent).openPopup();
@@ -245,12 +261,19 @@
             // Load Polygon GeoJSON
             var polygons = L.geoJson(null, {
                 onEachFeature: function(feature, layer) {
+                    var routeDelete = "{{ route('polygons.destroy', ':id') }}";
+                        routeDelete = routeDelete.replace(':id', feature.properties.id);
+
                     var popupContent = "Nama: " + feature.properties.name + "<br>" +
                         "Deskripsi: " + feature.properties.description + "<br>" +
                         "Luas: " + feature.properties.area_km2.toFixed(2) + " km<sup>2</sup><br>" +
                         "Dibuat: " + feature.properties.created_at + "<br>" +
                         "<img src='{{ asset('storage/images') }}/" + feature.properties.image +
-                        "' width='200' alt=''>";
+                        "' width='200' alt=''>" + "<br>" +
+                        "<form method='POST' action='" + routeDelete + "'>" +
+                            '@csrf' + '@method("DELETE")' +
+                            "<button type='submit' class='btn btn-danger btn-sm' onclick='return confirm(`Are you sure?`)'><i class='fa-solid fa-trash-can'></i></button>" + "</form>"
+                        ;
                     layer.on({
                         click: function() {
                             layer.bindPopup(popupContent).openPopup();
