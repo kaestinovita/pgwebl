@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Kaesti Novita Ramadhanti',
-            'email' => 'kaestinovitaramdahanti@mail.ugm.ac.id',
+            'email' => 'kaestinovitaramadhanti@mail.ugm.ac.id',
             'password' => bcrypt('cookies123'),
         ]);
     }

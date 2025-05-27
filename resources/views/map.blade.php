@@ -211,11 +211,13 @@
                         "Dibuat pada: " + feature.properties.created_at + "<br>" +
                         "<img src='{{ asset('storage/images') }}/" + feature.properties.image +
                         "' width='200' alt=''>" + "<br>" +
-                        "<a href='"+ routeedit +"' class='btn btn-warning btn-sm'><i class='fa-solid fa-pen-to-square'></i></a>" +
+                        "<a href='" + routeedit +
+                        "' class='btn btn-warning btn-sm'><i class='fa-solid fa-pen-to-square'></i></a>" +
                         "<form method='POST' action='" + routeDelete + "'>" +
                         '@csrf' + '@method('DELETE')' +
                         "<button type='submit' class='btn btn-danger btn-sm' onclick='return confirm(`Are you sure?`)'><i class='fa-solid fa-trash-can'></i></button>" +
-                        "</form>";
+                        "</form>" +
+                        "</div>" + "<br>" + "<p>Dibuat Oleh: " + feature.properties.user_created + "</p>";
 
                     layer.on({
                         click: function() {
@@ -249,11 +251,12 @@
                         "Dibuat: " + feature.properties.created_at + "<br>" +
                         "<img src='{{ asset('storage/images') }}/" + feature.properties.image +
                         "' width='200' alt=''>" + "<br>" +
-                        "<a href='"+ routeedit +"' class='btn btn-warning btn-sm'><i class='fa-solid fa-pen-to-square'></i></a>" +
+                        "<a href='" + routeedit +
+                        "' class='btn btn-warning btn-sm'><i class='fa-solid fa-pen-to-square'></i></a>" +
                         "<form method='POST' action='" + routeDelete + "'>" +
                         '@csrf' + '@method('DELETE')' +
                         "<button type='submit' class='btn btn-danger btn-sm' onclick='return confirm(`Are you sure?`)'><i class='fa-solid fa-trash-can'></i></button>" +
-                        "</form>";
+                        "</form>" + "</div>" + "<br>" + "<p>Dibuat Oleh: " + feature.properties.user_created + "</p>";
                     layer.on({
                         click: function() {
                             layer.bindPopup(popupContent).openPopup();
@@ -284,11 +287,12 @@
                         "Dibuat: " + feature.properties.created_at + "<br>" +
                         "<img src='{{ asset('storage/images') }}/" + feature.properties.image +
                         "' width='200' alt=''>" + "<br>" +
-                        "<a href='"+ routeedit +"' class='btn btn-warning btn-sm'><i class='fa-solid fa-pen-to-square'></i></a>" +
+                        "<a href='" + routeedit +
+                        "' class='btn btn-warning btn-sm'><i class='fa-solid fa-pen-to-square'></i></a>" +
                         "<form method='POST' action='" + routeDelete + "'>" +
                         '@csrf' + '@method('DELETE')' +
                         "<button type='submit' class='btn btn-danger btn-sm' onclick='return confirm(`Are you sure?`)'><i class='fa-solid fa-trash-can'></i></button>" +
-                        "</form>";
+                        "</form>"+"</div>" + "<br>" + "<p>Dibuat Oleh: " + feature.properties.user_created + "</p>";
                     layer.on({
                         click: function() {
                             layer.bindPopup(popupContent).openPopup();

@@ -66,6 +66,7 @@ class PolylinesController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'image' => $name_image,
+            'user_id' => auth()->user()->id
         ];
 
 
